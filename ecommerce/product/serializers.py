@@ -6,6 +6,32 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = '__all__'
 
+    category = serializers.SlugRelatedField(
+        slug_field='name',
+        read_only=True,
+    )
+
+    sub_category = serializers.SlugRelatedField(
+        slug_field='name',
+        read_only=True,
+    )
+    usage_id = serializers.SlugRelatedField(
+        slug_field='name',
+        read_only=True
+    )
+    gender_id = serializers.SlugRelatedField(
+        slug_field='name',
+        read_only=True
+    )
+    product_type_id = serializers.SlugRelatedField(
+        slug_field='name',
+        read_only=True
+    )
+    
+        
+
+
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category

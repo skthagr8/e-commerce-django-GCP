@@ -60,6 +60,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+REDIS_IP = '6379' 
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://REDIS_IP:6379/0",  # replace REDIS_IP with Memorystore instance IP
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+
 ROOT_URLCONF = 'ecommerce.urls'
 
 TEMPLATES = [
